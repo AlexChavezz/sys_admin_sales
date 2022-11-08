@@ -1,0 +1,67 @@
+.authPageConatiner {
+    width: 100vw;
+    height: 100vh;
+}
+.authPageHeader {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 30vh;
+}
+.authPageHeaderTitle {
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: #6C63FF;
+}
+.authPageHeaderMode {
+    font-size: 1.5rem;
+}
+
+.authPageFormContainer {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+}
+
+.authPageForm {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.authPageFormLabel {
+    margin-top: 50px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+.authPageFormInput {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #d9d9d9c9;
+    outline: none;
+    border: 1px solid #ccce;
+    font-size: 1.3rem;
+}
+.authPageFormSubmit {
+    transition: 200ms all ease;
+    background-color: #6C63FF;
+    border: 1px solid #6C63FF;
+    border-radius: 5px;
+    color: #fffe;
+    margin-top: 50px;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+}
+.authPageFormSubmit:active {
+    transform: scale(0.9);
+}
+.arrowContainer {
+    position: absolute;
+    top: 40px;
+    left: 60px;
+    cursor: pointer;
+}

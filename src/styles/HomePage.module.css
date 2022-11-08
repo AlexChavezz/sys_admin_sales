@@ -1,0 +1,33 @@
+.homePageContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.homePageTarget {
+    align-items: center;
+    animation: 200ms all ease-in;
+    background-color: rgba(204, 204, 204, 0.212);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 603px;
+    width: 400px;
+}
+
+.homePageTarget:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    cursor: pointer;
+}
+
+.homePageTargetImage {
+    width: 300px;
+}
+.homePageTargetTitle {
+    color: #343434;
+    font-size: 30px;
+    font-weight: 400;
+}
