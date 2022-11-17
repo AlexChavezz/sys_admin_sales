@@ -1,11 +1,45 @@
 import styles from '../styles/AuthPage.module.css';
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { AuthMode } from '../context/AuthMode';
+import { useForm } from '../hooks/useForm';
+import { path } from '../path';
 
+const initialState = {
+    userName: "",
+    password: ""
+}
 
 export const AuthPage = () => {
     const { authMode } = useContext(AuthMode);
+    const { values, handleChange } = useForm(initialState);
+    const { userName, password } = values;
+
+    async function onSubmit(e:React.FormEvent)
+    {
+        e.preventDefault();
+        try
+        {
+            const response = await window.fetch(`${path}/users/get`, { 
+                method:'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(values)
+            });
+            const data = await response.json();
+            console.log(data);
+            if(data.length > 0)
+            {
+               return console.log("Existe el usuario");
+            }
+            console.log("NO existe el usuario");
+        }
+        catch(e)
+        {
+            console.log(e);
+        }
+    }
     return (
         <section
             className={styles.authPageConatiner}
@@ -17,15 +51,18 @@ export const AuthPage = () => {
             <article className={styles.authPageFormContainer}>
                 <form
                     className={styles.authPageForm}
+                    onSubmit={onSubmit}
                 >
                     <label
-                        htmlFor="text"
+                        htmlFor="userName"
                         className={styles.authPageFormLabel}
                     >USUARIO</label>
                     <input
                         type="text"
-                        name="text"
+                        name="userName"
+                        value={userName}
                         className={styles.authPageFormInput}
+                        onChange={handleChange}
                     />
                     <label
                         htmlFor="password"
@@ -33,8 +70,10 @@ export const AuthPage = () => {
                     >CONTRASEÑA</label>
                     <input
                         type="password"
+                        value={password}
                         name="password"
                         className={styles.authPageFormInput}
+                        onChange={handleChange}
                     />
                     <input
                         type="submit"
